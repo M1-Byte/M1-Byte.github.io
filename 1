@@ -1,0 +1,196 @@
+为了区分本文中的定义，将本文中所有粗体 $\bm{a}$ 和 $\bm{h}$ 作为水平宽和铅垂高线段的符号。其余非粗体字母按照数学法则照常使用。
+
+# 水平宽和铅垂高
+## 1.水平宽和铅垂高的定义与性质
+如图 $1$，这是一个锐角三角形。考虑求它的面积。
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/wm5y0hm4.png)
+
+我们可以将其放进一个坐标系中进行观察。如图 $2$。
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/ufu16jtk.png)
+
+### 定义 1.1 水平宽
+- 三角形任意两个顶点的投影长度。记作 $\bm{a}$。
+### 定义 1.2 铅垂高
+- 过三角形第三点作水平宽的垂线，交对边所在的直线为一点。这两点的距离叫做铅垂高。记作 $\bm{h}$。
+
+
+### 定理 1.1 
+- 因为**同一平面内过直线外一点有且只有一条直线与已知直线垂直**，所以当确定了一条水平宽后，铅垂高有且只有一条。
+
+
+### 定理 1.2
+- 三角形的一组铅垂高与水平宽相互垂直。即 $\bm{a} \perp \bm{h}$。
+
+### 定理 1.3
+- 三角形的面积等于其一组水平宽与铅垂高之积的一半。即 $S_{\triangle ABC}=\frac{1}{2}\bm{a} \bm{h}$。
+
+- 证明（图 $2$）：     
+    过点 $A,C$ 分别作 $AE,CF \perp BD$，垂足为 $E,F$。
+    
+    根据**定理 1.2**可得 $AE+CF=\bm{a}$，已知 $BD=\bm{h}$。
+
+    所以 
+    $$
+    \begin{align*}
+        S_{\triangle ABC} &= S_{\triangle ABD}+S_{\triangle BCD}\\
+        &= \frac{1}{2} AE \cdot BD + \frac{1}{2} CF \cdot BD \\
+        &= \frac{1}{2} BD \cdot (AE+CF) \\
+        &= \frac{1}{2} \bm{a} \bm{h}
+    \end{align*}
+    $$
+
+### 定理 1.4
+- 一个三角形有三对水平宽和铅垂高。如图 $3$。任意一组水平宽和铅垂高都满足 $S_{\triangle ABC}=\frac{1}{2}\bm{a} \bm{h}$。
+
+    ![](https://cdn.luogu.com.cn/upload/image_hosting/coxv6zfk.png)
+
+## 2.一般三角形中的水平宽和铅垂高
+### 2.1 锐角三角形
+见**定理 1.4**。
+### 2.2 钝角三角形
+如图 $4$，钝角三角形同样满足上文中的性质。
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/fij3eivn.png)
+
+综上可得，对于任意一个三角形，我们都可以利用水平宽铅垂高来求出其面积。
+
+## 3.水平宽铅垂高的应用
+
+### 3.1 水平宽铅垂高与平面直角坐标系
+
+水平宽和铅垂高被广泛地应用于坐标系中的求三角形面积问题。这一类题的大致思路是：
+- 找到水平宽与铅垂高
+- 求水平宽与铅垂高的长度
+- 计算面积
+
+### 例 1 (2023秋·桐城市校级期末)：
+
+![](https://img.jyeoo.net/quiz/images/svg/202304/322/63b62a62.png)
+
+如图，在平面直角坐标系中，直线 $y=kx+b$ 与 $x$ 轴交于点 $B(-5,0)$，与 $y$ 轴交于点 $A$，直线 $y=-\frac{4}{3}x+4$ 过点 $A$,与 $x$ 轴交于点 $C$，点 $P$ 是 $x$ 轴上方一个动点。
+
+- 求直线 $AB$ 的函数表达式；    
+- 若点 $P$ 在射线 $BA$ 上，且 $S_{\triangle APC}=S_{\triangle AOB}$，求点 $P$ 的坐标。
+
+跳过第一问得 $l_{AB}:y=\frac{4}{5}x+4, \ A(0,4), \ B(-5,0), \ C(3,0), \  S_{\triangle AOB}=10$。
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/4q0io524.png)
+
+第二问我们就可以用水平宽铅垂高公式。以 $OC$ 为水平宽，$DP$ 为铅垂高。则 $S_{\triangle AOB}=\frac{1}{2}OC \cdot DP=10$。
+
+此时设 $D(m,\frac{4}{5}m+4),P(m,-\frac{4}{3}m+4)$，则 $|y_{D}-y_{P}|=DP$。
+
+所以 $\frac{1}{2} |y_{D}-y_{P}| \times 3=10$，解得 $m=-\frac{25}{8}$ 或 $m=\frac{25}{8}$。
+所以 $P(-\frac{25}{8},\frac{3}{2})$ 或 $P(\frac{25}{8},\frac{13}{2})$。
+
+如果没有平面直角坐标系，**建议直接暴力建系**，找到一个直角顶点，以这一顶点为原点作平面直角坐标系即可。
+
+### 例 2 ：
+
+如图，已知边长为 $a$ 的正方形 $ABCD$，$E$ 为 $AD$ 中点，$P$ 为 $CE$ 中点，求三角形 $BPD$ 的面积
+
+![](https://img.jyeoo.net/quiz/images/201112/60/97f0a08c.png)
+
+以点 $B$ 为原点 $O$，构建平面直角坐标系，如图：
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/uv1mmlv0.png)
+
+因为四边形 $ABCD$ 是正方形，所以对角线的解析式为：$l_{BD}:y=x$。
+
+由题意得 $E(\frac{a}{2} , a) \ ,C(a,0)$。
+
+由中点坐标公式可得 $P(\frac{x_E+x_C}{2},\frac{y_E+y_C}{2})$，即 $E(\frac{3}{4}a,\frac{1}{2}a)$，即 $l_{BP}:y=\frac{2}{3}x$。
+
+此时 $BC$ 为水平宽，$PQ$ 为铅垂高。可得：$l_{PQ}:x=\frac{3}{4}a$，联立 $l_{BD},l_{PQ}$，得：
+
+$
+\left\{\begin{matrix} 
+l_{BD}:y=x\\ 
+l_{PQ}:x=\frac{3}{4}a  
+\end{matrix}\right. 
+$ 解得 $
+\left\{\begin{matrix} 
+x=\frac{3}{4}a\\
+y=\frac{3}{4}a
+\end{matrix}\right. 
+$，所以 $Q(\frac{3}{4}a,\frac{3}{4}a)$。
+
+所以 $PQ=|y_Q-y_P|=|\frac{3}{4}a-\frac{1}{2}a|=\frac{1}{4}a$。
+
+所以 $S_{\triangle BDP}=\frac{1}{2}PQ \cdot BC=\frac{1}{2} \times \frac{1}{4} a^{2}=\frac{1}{8} a^{2}$
+
+### 例 3：（2021 春·青山区期末）
+已知，在平面直角坐标系中，三角形 $ABC$ 三个顶点的坐标分别为 $A(a,0),B(b,4),C(2,c)$，$BC \parallel x$ 轴，且 $a,b$ 满足 $\sqrt{a+b-1}+|2a-b+10|=0$。
+- 求 $a,b,c$ 的值。
+- 如图 $1$，在 $y$ 轴上是否存在点 $D$，使三角形 $ABD$ 的面积等于三角形 $ABC$ 的面积？若存在，请求出点 $D$ 的坐标；若不存在，请说明理由。
+- 如图 $2$，连接 $OC$ 交 $AB$ 于点 $M$，点 $N(n,0)$ 在 $x$ 轴上，若三角形 $BCM$ 的面积小于三角形 $BMN$ 的面积，直接写出 $n$ 的取值范围。
+    
+    ![](https://img.jyeoo.net/quiz/images/202107/8/506f1216.png)
+
+**这是一道很典型的水平宽铅垂高题。**
+
+第一题跳过，得 $a=-3,b=4,c=4$。
+
+接下来看第二问。已知 $A(-3,0) ,\ B(4,4), \ C(2,4)$。显然 $D$ 点有两种情况，如果硬用割补法较为繁琐。如果使用水平宽铅垂高比较简单。
+
+显然可以求出 $S_{\triangle ABC}=4$。具体求法也可以用水平宽和铅垂高。如下：
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/9zto940m.png)
+
+所以 $S_{\triangle ABC}=\frac{1}{2} BC \cdot AD=\frac{1}{2} |x_B-x_C| \cdot |y_C|=\frac{1}{2} \times 2 \times 4=4$。
+
+接下来求 $S_{\triangle ABD}$。设 $D(0,m)$。
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/frlal3rf.png)
+
+所以 $S_{\triangle ABD}=\frac{1}{2} \bm{ah}=\frac{1}{2}|x_A-x_B| \cdot |m-y_M|$。
+
+已知 $A,B$ 两点坐标，不难求出 $l_{AB}:y=\frac{4}{7}x + \frac{12}{7}$。所以 $M(0,\frac{12}{7}), \ y_m=\frac{12}{7}$。**这里设 $AB$ 与 $y$ 轴交点为 $M$。**
+
+所以可得方程：
+
+$$|m-\frac{12}{7}| \cdot 7 \times \frac{1}{2}=4$$
+
+解得 $m=\frac{20}{7}$ 或 $m=\frac{4}{7}$。
+
+所以 $D(0 , \frac{20}{7})$ 或 $D(0 , \frac{4}{7})$。
+
+第三问同样，用水平宽铅垂高公式会简易许多。
+
+首先求得 $S_{\triangle BCM}$，如下图：
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/fo1b0k1g.png)
+
+已知 $A(-3,0) ,\ B(4,4), \ C(2,4)$。
+
+不难求出 $l_{OC}:y=2x$。联立 $l_{OC}$ 和 $l_{AB}$ 得：
+
+$
+\left\{\begin{matrix} 
+l_{OC}:y=2x\\ 
+l_{AB}:y=\frac{4}{7}x + \frac{12}{7}  
+\end{matrix}\right. 
+$ 解得 $
+\left\{\begin{matrix} 
+x=\frac{6}{5}\\
+y=\frac{12}{5}
+\end{matrix}\right. 
+$，所以 $M(\frac{6}{5},\frac{12}{5})$
+
+所以 $S_{\triangle BCM}=\frac{1}{2} BC \cdot MD=\frac{1}{2} |x_B-x_C| \cdot |y_C-y_M|=\frac{1}{2} |4-2| \cdot |4-\frac{12}{5}|=\frac{1}{2} \times 2 \times \frac{8}{5}=\frac{8}{5}$。
+
+接下来就要分类讨论 $N$ 点的位置。分两种情况，如图：
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/qyj6gg1c.png)
+
+因为设 $N(n,0)$，$DN$ 位于同一条直线上，所以 $D(n,\frac{4}{7}n+\frac{12}{7})$。
+
+所以，$S_{\triangle BMN}=\frac{1}{2} \bm{ah}=\frac{1}{2} \cdot |x_M-x_B| \cdot |y_D-y_N|=\frac{1}{2} \times |4-\frac{6}{5}| \cdot |\frac{4}{7}n+\frac{12}{7}-0| =\frac{1}{2} \times \frac{14}{5} \cdot |\frac{4}{7}n+\frac{12}{7}|$。
+
+所以可列方程：
+
+$$\frac{1}{2} \times \frac{14}{5} \cdot |\frac{4}{7}n+\frac{12}{7}|>\frac{8}{5}$$
+
+解得：$n>-1$ 或 $n<-5$。
